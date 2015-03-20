@@ -182,6 +182,27 @@ The main aspects of Share that can be configured are:
     Themes
     Custom types and aspects
 
+Configuring Share Document Library
+-  Web tier configuration
+Evaluators: is a evaluation on certain elements and return a bool value, normally the return value determines certain attributes of that node.
+	Configurable areas:
+	- Document Library (ref: http://docs.alfresco.com/5.0/concepts/doclib-web-tier.html)
+		- Status indicators: small icons typically used to indicate the presence of a marker aspect, or whether a document is in a particular state. 
+		  the indicator images location: /res/components/documentlibrary/indicators/
+		  the default image ref: <id>-16.png
+		<indicator id (index) (icon) (label)>
+    		<evaluator />
+    		<labelParam index />
+    		<override />
+		</indicator>
+	- DocLibCustom
+	- DicLibActions
+	In the document library pages, actions on the documents can be grouped into 4 main types:
+	* folder-browse
+	* folder-details
+	* document-browse
+	* document-details
+	each group has unique id and has servral actions defined on this group, the actions visibility is determined by the result of evaluator
     
 
 ##############################################################################
