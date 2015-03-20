@@ -1,0 +1,123 @@
+# Web Script description language references:
+The following is a list of available elements(XML) for descripting a web script:
+### webscript
+The webscript element in a web descriptor file provides the root XML element. The webscript element is required.
+### shortname
+The shortname element in a web descriptor file provides a human readable name for the web script. The shortname element is required.
+### description
+The description element in a web descriptor file provides documentation for the web script. The description element is optional.
+### url
+The url element represents a URI template to which the web script is bound. Variants of the URI template which specify a format do not need to be registered, however, specifying them is useful for documentation purposes. There must be at least one url element, but there can be several.
+### format
+The format element controls how the content-type of the response can be specified by using the URI. The format element is optional.
+### authentication
+The authentication element specifies the level of authentication required to run the web script. The authentication element is optional.
+### transaction
+The transaction element specifies the transaction level required to run the web script. The transaction element is optional.
+### family
+The family element allows a web script developer to categorize their web scripts. Any value can be assigned to family and any number of families can be assigned to the web script, providing a freeform tagging mechanism. The web script index provides views for navigating web scripts by family. The family tag can be repeated if the script belongs to multiple families. The family element is optional.
+### cache
+The cache element specifies the required caching level. The cache element is optional.
+### negotiate
+The negotiate element associates an Accept header MIME type to a specific web script format of response. The mandatory value specifies the format while the mandatory attribute, accept, specifies the MIME type. Content Negotiation is enabled with the definition of at least on negotiate element. The negotiate element can be specified zero or more times.
+### lifecycle
+The lifecycle element allows a web script developer to indicate the development status of a web script. Typically, web scripts start out in a draft state while being developed or tested, are promoted to production quality for widespread use, and finally retired at the end of their life. The lifecycle element is optional.
+### formdata
+The formdata element is optional.
+### args
+The args element represents a list of arguments passed to the web script. This are listed for documentation purposes. The args element is optional.
+### responses
+The responses element represents a collection of response types for the web script. The responses element is optional.
+### requests
+The requests element represents a collection of request types for the web script. The requests element is optional.
+
+## Objects that are available to in all web scripts regardless of its running context:
+### args
+### argsM
+### atom
+### cache
+### config
+### date
+### format
+### formdata
+### guest
+### json
+### jsonUtils
+### headers
+### headersM
+### logger
+### model
+### msg
+### requestbody
+### server
+### status
+### url
+### webscript
+
+For details, see 
+http://docs.alfresco.com/5.0/references/api-ws-root.html
+http://docs.alfresco.com/5.0/references/api-ws-root-ref.html
+
+## Objects that are available in webscripts running in repository tier 
+### roothome
+### companyhome
+### person
+### userhome
+### search
+### people
+### actions
+### session
+### classfication
+### utils
+### workflow
+
+For details, see http://docs.alfresco.com/5.0/references/api-ws-root-repository.html
+
+## Objects that are available in all templates(.ftl files) regardless of contexts
+### args
+### argsM
+### cache
+### config
+### date
+### format
+### guest
+### headers
+### headersM
+### messages
+### server
+### status
+### url
+### webscript
+
+For details,  see http://docs.alfresco.com/5.0/references/api-ws-root-template.html
+
+## Objects available in repository tier templates
+### roothome
+### companyhome
+### person
+### userhome
+
+See http://docs.alfresco.com/5.0/references/api-ws-root-template-repository.html
+
+## Methods(FreeMarker methods defined by Alfresco specifically for developping webscript response templates)
+### absurl(url)
+Returns an absolute URL representation of the passed URL. Useful when rendering links within Atom (and similar formats).
+### xmldate(date)
+Returns an ISO8601-formatted result of the passed date. Useful when rendering dates within XML.
+### scripturl(queryString)
+Returns a URL that references this web script. The passed queryString is added to the URL. System arguments such as guest and format are automatically added. This method is particularly useful for protection against the runtime environment within which the web script is executing. In some environments, such as a Portal, the URL is encoded.
+### clienturlfunction(funcName)
+Generates a client-side JavaScript function that can generate a URL back to this web script.
+### argreplace(argString, argName, argValue, ...)
+Replaces the specified argName with argValue or adds argName if it does not exist in argString.
+### encodeuri(uriString)
+Encodes the string into URL-safe form.
+
+## For UI developping(representation tier) APIs are:
+### Alfresco Share JavaScript API(Client side)
+### Share Extras API
+### Surf API
+
+
+
+
