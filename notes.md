@@ -202,7 +202,10 @@ Evaluators: is a evaluation on certain elements and return a bool value, normall
 	* folder-details
 	* document-browse
 	* document-details
-	each group has unique id and has servral actions defined on this group, the actions visibility is determined by the result of evaluator
+	* document-link-browse
+	* document-delete
+	* 
+	each group has unique id and has servral actions defined on this group, the actions visibility is determined by the result of evaluator. Each action may lead to a certain page for further operations.
     
 
 ##############################################################################
